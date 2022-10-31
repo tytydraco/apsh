@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+PORT=65432
+
+adb shell << EOF
+setsid \
+    nc \
+        -L \
+        -p "$PORT" \
+        -s localhost \
+        "sh 2>&1" \
+        & 
+EOF

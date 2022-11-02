@@ -3,11 +3,12 @@
 PORT=65432
 
 adb shell << EOF
-setsid \
+nice -n -20 -- setsid \
     nc \
         -L \
         -p "$PORT" \
         -s localhost \
+        -- \
         sh -c "sh 2>&1" \
         & 
 EOF

@@ -8,6 +8,6 @@ setsid \
         -L \
         -p "$PORT" \
         -s localhost \
-        "sh 2>&1" \
+        sh -c "sh 2>&1" \
         & 
 EOF
